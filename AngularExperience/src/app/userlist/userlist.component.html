@@ -1,0 +1,25 @@
+<p>userlist works!<b> Parent</b></p>
+
+<!-- <div class="user" *ngFor="let user of userList,index as i ">
+   
+    <div class="profile-pic">
+        <p>{{user.id}}</p>
+        <img [src]="user.avatar" alt="">
+    </div>
+
+    <div class="user-details">
+
+        <p class="user-name"> {{user.first_name}} {{user.last_name}} </p>
+        <p class="user-email">{{user.email}}</p>
+    </div> -->
+
+    <ng-container *ngFor="let user of userList, index as i">
+        <app-userdetail  [userdetails]="user" [userIndex]="i" (removeUserEvent)="userRemoved($event)"> </app-userdetail>
+    </ng-container>
+
+
+
+    <ng-container *ngFor="let user of userList, index as i">
+        <app-userdetail  [userdetails]="user" [userIndex]="i" (removeUserEvent)="userRemoved($event)"> </app-userdetail>
+    </ng-container>
+

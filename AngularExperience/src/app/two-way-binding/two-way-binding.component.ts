@@ -24,7 +24,6 @@ export class TwoWayBindingComponent implements OnInit {
     if (event.target.value =='') {
       this.disable = true;
     } else {
-      
       this.disable = false;
     }
   }

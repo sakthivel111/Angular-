@@ -1,0 +1,21 @@
+<div class="title">
+    <h1>directives </h1>
+</div>
+
+<div class="directives">
+    <div class="Ngfor">
+        <h2>Ngfor *ngfor (Ts to =>=> Html view)</h2>
+        <p *ngFor="let user of users;index as i,first as isFirst,last as isLast,even as isEven,odd as isOdd ">{{user.id}} {{user.name}}</p>
+    </div>
+    <hr>
+    <div class="ngif" *ngIf="users; else elseBlock">
+        <h2>NgIf *ngIf (True (or) Fals)</h2>
+        <p *ngFor="let user of users">{{user.id}} {{user.name}}</p>
+        
+    </div>
+    
+    <ng-template #elseBlock>Condition False so Undefine</ng-template>
+
+
+</div>                                                                   
+
