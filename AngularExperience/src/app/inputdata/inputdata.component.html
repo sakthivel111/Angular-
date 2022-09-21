@@ -1,0 +1,6 @@
+<div class="inputalign">
+    <p>inputdata works!</p>
+    <label for="input" >Input Data:</label>
+    <input id="input"  placeholder="User Name" type="text" (keyup)="clear($event)" [(ngModel)]="username" >
+    <button [disabled]="disable" (click)="veiw()">Click</button>
+</div>

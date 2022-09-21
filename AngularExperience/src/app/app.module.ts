@@ -8,6 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
+import { InputdataComponent } from './inputdata/inputdata.component';
+import { InputstoreComponent } from './inputstore/inputstore.component';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     DirectivesComponent,
     UserlistComponent,
     UserdetailComponent,
+    InputdataComponent,
+    InputstoreComponent
     
   ],
   imports: [

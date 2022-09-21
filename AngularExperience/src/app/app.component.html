@@ -1,19 +1,25 @@
-<div class="twowaybinding">
+<!-- <div class="twowaybinding">
   <app-two-way-binding ></app-two-way-binding>
   
 </div>
 <hr><hr>
 
 <div class="directives">
-  <app-directives></app-directives>
+  <app-directives></app-directives> 
 </div>
 
 <div class="userlist">
   <h2>Data sending (parent to child)(child to parent (Emit)) </h2>
  <app-userlist ></app-userlist>
+</div> -->
 
- 
+<div class="input">
+<app-inputdata (newItemEvent)="use($event)"> </app-inputdata>
 </div>
-
+<div class="datastore">
+<ng-container class="store" *ngFor="let user  of  a">
+  <app-inputstore  [inputText]="user"> </app-inputstore>
+  </ng-container>
+</div>
 
 
