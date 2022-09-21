@@ -1,10 +1,12 @@
 .navbar{
-    background-color: bisque;
+    background-color:transparent;
     width: 100%;
     height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
 }
 .body{
-    background-color: rgb(156, 216, 135);
+    background-color: white;
     width: 100%;
     height: 200px;
     .operation{
@@ -17,4 +19,5 @@
     background-color: bisque;
     width: 100%;
     height: 50px;
+    margin-top: 400px;
 }
