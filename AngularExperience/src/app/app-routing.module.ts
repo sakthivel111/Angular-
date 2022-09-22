@@ -24,8 +24,13 @@ const routes: Routes = [
           path:'contect', 
           component:ContectComponent,
           
-        }
-        
+        },
+         {
+          path:'**',
+          component:PagenotfoundComponent,
+          
+         }
+
 ];
 
 @NgModule({
