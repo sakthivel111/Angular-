@@ -2,12 +2,15 @@
     display:flex;
     .container {
     width: 300px;
-    height: 280px;
+    height: 300px;
     text-align: center;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     .free {
         width: 100%;
-        overflow-x: hidden;
+        height: 40px;
+        // overflow-y: hidden;
+        background-color: #f7f7f7;
+        box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 
     }
     .value {
@@ -18,14 +21,28 @@
 
         a {
             text-decoration: none;
-            padding: 10px 55px;
+            padding: 14px 60px;
             border: 1px solid rgb(28, 160, 249);
-
+            border-radius: 5px;
         }
 
         a:hover {
             color: white;
             background-color: #0084ff;
+        }
+        .Pro{
+            color:white;
+            background-color:#0084ff ;
+        }
+        .Pro:hover{
+            background-color: #0b68c0;
+        }
+        .Enterprise{
+            color:white;
+            background-color:#0084ff ;
+        }
+        .Enterprise:hover{
+            background-color: #0b68c0;
         }
 
     }
