@@ -7,6 +7,7 @@ import { InputstoreComponent } from './inputstore/inputstore.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
+  // {path:'',redirectTo:'about',pathMatch:'full'},
       {
         path:'about', 
         component:AboutComponent,
@@ -25,11 +26,11 @@ const routes: Routes = [
           component:ContectComponent,
           
         },
-        //  {
-        //   path:'**',
-        //   component:PagenotfoundComponent,
+         {
+          path:'**',
+          component:PagenotfoundComponent,
           
-        //  }
+         }
 
 ];
 
