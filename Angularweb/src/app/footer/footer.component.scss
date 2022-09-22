@@ -1,0 +1,21 @@
+.footerwaper{
+    display:flex;
+    justify-content:space-around;
+    box-shadow: rgba(67, 71, 85, 0.209) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    margin-top: 380px;
+    p{
+        color: rgba(0, 0, 0, 0.606);
+    }
+.footercont{
+    ul{
+        list-style: none;
+    a{
+        text-decoration:none;
+        color: rgba(0, 0, 0, 0.606);    
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+}
+}

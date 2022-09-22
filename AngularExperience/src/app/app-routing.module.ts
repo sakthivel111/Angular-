@@ -25,11 +25,11 @@ const routes: Routes = [
           component:ContectComponent,
           
         },
-         {
-          path:'**',
-          component:PagenotfoundComponent,
+        //  {
+        //   path:'**',
+        //   component:PagenotfoundComponent,
           
-         }
+        //  }
 
 ];
 
