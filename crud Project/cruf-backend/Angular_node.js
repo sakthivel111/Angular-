@@ -2,11 +2,12 @@ express = require('express');
 app = express();
 cors = require("cors");
 app.use(cors());
+app.use(express.json());
 var mysql = require('mysql');
 
-;
 
-//MSQL connection
+
+//MSQL connections
 
 var database = mysql.createConnection({
     host: 'localhost',
@@ -20,7 +21,7 @@ var database = mysql.createConnection({
 //get all datas
 app.get('/user' ,(req,res)=>{
 
-    let getoperation= 'select * from table_name';
+    let getoperation= 'select * from table_name ';
     database.query(getoperation,(err,result)=>{
         if(err){
             console.log(err)
@@ -30,26 +31,40 @@ app.get('/user' ,(req,res)=>{
     })
 })
 
-//get single data
-app.get('/users' ,(req,res)=>{
 
-    let getoperation= 'select id from table_name  ';
-    database.query(getoperation,(err,result)=>{
+//single data display input boxs
+app.get('/userId/:id' ,(req,res)=>{
+
+    let getoperation= 'select * from table_name where id = ?';
+
+    database.query(getoperation,[req.params.id], (err,result)=>{
         if(err){
             console.log(err)
         }
-        
+        //console.log('kkkkkkkkkkkkkkkkkkkkkkk',result)
         res.send(result) // frent end view
     })
 })
 
+
 //create
-app.post('creat',(req ,res)=>{
+app.post('/insert',(req ,res)=>{
+    data=req.body
     console.log(req.body)
+    let sql='insert into table_name (name,age,job) values(?,?,?)'
+    database.query(sql, [data.name,data.age,data.job], (err,result)=>{
+  if(err){
+    console.log(err)
+  }
+
+  res.send({
+    msg: 'inserted sucess'
+  })
+  console.log('Inserted successfully' ,result)
+
+    })
+
 })
-
-
-
 
 //cecking the data base connection
 database.connect(function (err) {
@@ -66,3 +81,8 @@ database.connect(function (err) {
 app.listen(3000, () => {
     console.log('Server is running')
 })
+
+
+
+
+

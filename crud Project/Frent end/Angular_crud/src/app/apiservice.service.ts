@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { Observable, throwError } from 'rxjs';
-// import { catchError, retry } from 'rxjs/operators';
+import { environment } from '../environments/environment';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiserviceService {
 
   constructor(private http:HttpClient) { }
    
-   url='http://localhost:3000/user'
-
+  
    getall(){
-    return this.http.get(`${this.url}`)
+    return this.http.get(environment.url+'/user')
    }
 
-   creatall(data:any){
-
-    return this.http.post(`${this.url}`,data)
-   }
+  adduser(data:any){
+    return this.http.post(environment.url+'/insert',data)
+  }
+  getId(id: any){
+    return this.http.get(environment.url+'/userId/'+id)
+  }
 }

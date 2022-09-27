@@ -4,15 +4,23 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Job</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let datas  of data">
-      <td>{{datas.id}}</td>
+      <td>{{datas.id}}</td> 
       <td>{{datas.name}}</td>
+      <td>{{datas.age}}</td>
+      <td>{{datas.job}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="edit(datas)">Edit</button></td>
     </tr>
     <tbody>
 
     </table>    
 
 </div>
+
+

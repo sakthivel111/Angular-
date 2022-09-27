@@ -1,4 +1,4 @@
-import { createComponent, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreatComponent } from './creat/creat.component';
 import { ReadComponent } from './read/read.component';

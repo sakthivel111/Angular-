@@ -1,13 +1,20 @@
 <div class='container mt-5'>
 
-    <form action="#" >
+    <!-- <form action="#" > -->
         <div>
-            <input type="text" placeholder="Name" >
-
+            <input type="text" [(ngModel)]="username" placeholder="Name" >
         </div>
         <div>
-            <button type="button" class="btn btn-primary">Insert</button>
+            <input type="text" [(ngModel)]="userage" placeholder="Age" >
+        </div>
+        <div>
+            <input type="text" [(ngModel)]="userjob" placeholder="Job" >
+        </div>
+        <div>
+         <!-- <button *ngIf="isUpdate" (click)="updateUser()" class="btn btn-primary">update User</button> -->
+            <button type="button" (click)="adduser()" class="btn btn-primary">Submit</button>
         </div>
 
-    </form>
+    <!-- </form> -->
 </div>
+
