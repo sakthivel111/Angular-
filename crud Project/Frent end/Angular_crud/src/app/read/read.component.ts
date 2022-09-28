@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../apiservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
-//import { AppService } from '../app.service';
+
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
