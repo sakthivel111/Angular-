@@ -31,22 +31,6 @@ app.get('/user' ,(req,res)=>{
     })
 })
 
-
-//single data display input boxs
-app.get('/userId/:id' ,(req,res)=>{
-
-    let getoperation= 'select * from table_name where id = ?';
-
-    database.query(getoperation,[req.params.id], (err,result)=>{
-        if(err){
-            console.log(err)
-        }
-        //console.log('kkkkkkkkkkkkkkkkkkkkkkk',result)
-        res.send(result) // frent end view
-    })
-})
-
-
 //create
 app.post('/insert',(req ,res)=>{
     data=req.body
@@ -65,6 +49,53 @@ app.post('/insert',(req ,res)=>{
     })
 
 })
+
+
+//single data reference for id
+app.get('/userId/:id' ,(req,res)=>{
+
+    let getoperation= 'select * from table_name where id = ?';
+
+    database.query(getoperation,[req.params.id], (err,result)=>{
+        if(err){
+            console.log(err)
+        }
+        //console.log('kkkkkkkkkkkkkkkkkkkkkkk',result)
+        res.send(result) // frent end view
+    })
+})
+
+app.put('/update/:userId', (req, res) => {
+    var update = req.body
+    console.log(update)``
+    var sql = "UPDATE table_name SET name=?, age=?, job=? WHERE id = ?"
+    database.query(sql, [update.name, update.age, update.job, req.params.userId], (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send({ message: 'success updation' })
+        }
+        
+    })
+})
+
+//delet
+app.delete("/delet", (req, res) => {
+    var delet = req.body
+    var sql = "DELETE FROM table_name WHERE id=?; "
+    connection.query(sql, [delet.id], (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        res.send({ message: 'success updation' })
+
+    })
+
+});
+
+
+
+
 
 //cecking the data base connection
 database.connect(function (err) {

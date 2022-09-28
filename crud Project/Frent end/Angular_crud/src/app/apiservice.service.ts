@@ -17,10 +17,16 @@ export class ApiserviceService {
     return this.http.get(environment.url+'/user')
    }
 
-  adduser(data:any){
+  addinguser(data:any){
     return this.http.post(environment.url+'/insert',data)
   }
   getId(id: any){
     return this.http.get(environment.url+'/userId/'+id)
+  }
+  edituser(userData:any){
+    return this.http.put(environment.url+'/update/' + userData.id , userData)
+  }
+  deletinguser(userData:any){
+    return this.http.put(environment.url+'/delet/' + userData.id , userData)
   }
 }

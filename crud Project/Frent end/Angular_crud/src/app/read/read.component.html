@@ -7,6 +7,7 @@
       <th scope="col">Age</th>
       <th scope="col">Job</th>
       <th scope="col">Edit</th>
+      <th scope="col">Delet</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,8 @@
       <td>{{datas.name}}</td>
       <td>{{datas.age}}</td>
       <td>{{datas.job}}</td>
-      <td><button type="button" class="btn btn-primary" (click)="edit(datas)">Edit</button></td>
+      <td><button type="button" class="btn btn-primary" (click)="edit(datas.id)">Edit</button></td>
+      <td> <button type="button"  (click)="delet(datas.id)" class="btn btn-primary"> Delet</button> </td>
     </tr>
     <tbody>
 

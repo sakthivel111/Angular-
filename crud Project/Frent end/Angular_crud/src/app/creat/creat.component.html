@@ -1,6 +1,8 @@
 <div class='container mt-5'>
 
+    <!-- <input type="text" [(ngModel)]="userId" placeholder="Id" > -->
     <!-- <form action="#" > -->
+        
         <div>
             <input type="text" [(ngModel)]="username" placeholder="Name" >
         </div>
@@ -12,7 +14,9 @@
         </div>
         <div>
          <!-- <button *ngIf="isUpdate" (click)="updateUser()" class="btn btn-primary">update User</button> -->
-            <button type="button" (click)="adduser()" class="btn btn-primary">Submit</button>
+            <button type="button" (click)="adduser()" class="btn btn-primary"> {{changingname}}</button>
+            <!-- <button type="button" (click)="deletuser()" class="btn btn-primary"> Delet</button> -->
+
         </div>
 
     <!-- </form> -->
