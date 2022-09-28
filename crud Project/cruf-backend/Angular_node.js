@@ -3,6 +3,7 @@ app = express();
 cors = require("cors");
 app.use(cors());
 app.use(express.json());
+const { query } = require('express');
 var mysql = require('mysql');
 
 
@@ -44,7 +45,7 @@ app.post('/insert',(req ,res)=>{
   res.send({
     msg: 'inserted sucess'
   })
-  console.log('Inserted successfully' ,result)
+  
 
     })
 
@@ -67,7 +68,6 @@ app.get('/userId/:id' ,(req,res)=>{
 
 app.put('/update/:userId', (req, res) => {
     var update = req.body
-    console.log(update)``
     var sql = "UPDATE table_name SET name=?, age=?, job=? WHERE id = ?"
     database.query(sql, [update.name, update.age, update.job, req.params.userId], (err, result) => {
         if (err) {
@@ -80,14 +80,13 @@ app.put('/update/:userId', (req, res) => {
 })
 
 //delet
-app.delete("/delet", (req, res) => {
-    var delet = req.body
-    var sql = "DELETE FROM table_name WHERE id=?; "
-    connection.query(sql, [delet.id], (err, result) => {
+app.delete("/delete/:id", (req, res) => {
+    var sql = "DELETE FROM table_name WHERE id=?"
+    database.query(sql, [req.params.id], (err, result) => {
         if (err) {
             console.log(err)
         }
-        res.send({ message: 'success updation' })
+        res.send({ message: 'success deletion' })
 
     })
 

@@ -13,7 +13,7 @@ export class ApiserviceService {
   constructor(private http:HttpClient) { }
    
   
-   getall(){
+  getall(){
     return this.http.get(environment.url+'/user')
    }
 
@@ -26,7 +26,7 @@ export class ApiserviceService {
   edituser(userData:any){
     return this.http.put(environment.url+'/update/' + userData.id , userData)
   }
-  deletinguser(userData:any){
-    return this.http.put(environment.url+'/delet/' + userData.id , userData)
+  deletinguser(id:any){
+    return this.http.delete(environment.url+'/delete/' +id)
   }
 }

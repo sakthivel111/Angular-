@@ -9,11 +9,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ReadComponent implements OnInit {
   data: any;
- // id: any;
+ id: any;
 
   constructor(private service: ApiserviceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getall()
+  }
+
+
+  getall() {
+    
     this.service.getall().subscribe((res) => {
       console.log(res, 'respone')
       this.data = res
@@ -22,20 +28,14 @@ export class ReadComponent implements OnInit {
   }
 
   edit(userId: any) {
-
-    console.log('hfhfhhf', userId)
     this.router.navigate(['creat'], { queryParams: { userId } })
-
   }
 
   delet(userId: any) {
-
-    console.log('hfhfhhf', userId)
-    this.router.navigate(['creat'], { queryParams: { userId } })
+    this.service.deletinguser(userId).subscribe((newUser) => {
+       this.getall()
+    })
     
   }
-
-
-
 
 }
