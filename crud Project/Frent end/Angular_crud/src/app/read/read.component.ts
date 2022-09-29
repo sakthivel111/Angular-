@@ -14,7 +14,7 @@ export class ReadComponent implements OnInit {
   constructor(private service: ApiserviceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getall()
+    this.getall()  //Note It
   }
 
 
