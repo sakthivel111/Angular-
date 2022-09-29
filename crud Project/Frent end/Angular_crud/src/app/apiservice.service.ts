@@ -13,7 +13,7 @@ export class ApiserviceService {
   constructor(private http:HttpClient) { }
    
   
-  getall(){
+  getingall(){
     return this.http.get(environment.url+'/user')
    }
 

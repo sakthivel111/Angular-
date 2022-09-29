@@ -20,7 +20,7 @@ export class ReadComponent implements OnInit {
 
   getall() {
     
-    this.service.getall().subscribe((res) => {
+    this.service.getingall().subscribe((res) => {
       console.log(res, 'respone')
       this.data = res
       //console.log(this.data,"data taaaaaa")
