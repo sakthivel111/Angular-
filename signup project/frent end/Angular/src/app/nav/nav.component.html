@@ -1,13 +1,20 @@
 
- 
-    <div class="navlist">
-       <ul>
-          <li clss="header">Home</li>
-          <li class="feature"><a href="#">Frofile</a></li>
-          <li><a routerLink="#">Saved</a> </li>
-          <li><a routerLink="#">search bar</a></li>
-          <li><button pButton pRipple type="button" label="Primary" class="p-button-raised">Singn In</button></li>
-       </ul>
- 
-    </div>
- 
+<div class ='waper'>
+<div> 
+   <h3 class="headers">Home</h3>
+</div>
+<div class="navlist">
+   <ul>
+     
+      <li class="feature"><a href="#">Frofile</a></li>
+      <li><a routerLink="#">Saved</a> </li>
+      <li><span class="p-input-icon-right">
+         <i class="pi pi-search"></i>
+         <input type="text" class="serchbarder" pInputText placeholder="Search"/>    <!--[(ngModel)]="glopulsearchbar" -->
+     </span>
+      </li>
+      <li><button pButton pRipple type="button" routerLink="nav" class="p-button-rounded">Singn In</button></li>
+   </ul>
+
+</div>
+</div>
