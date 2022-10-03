@@ -3,33 +3,37 @@
     border-radius: 10px;
     width: 350px;
     margin:auto;
-    padding: 30px 5px;
+    padding: 10px 1px;
 
+    .alert{
+        color: red;
+    }
 .center {
     display: flex;
     justify-content: center;
     .header{
        h2{
        margin-top:0;
-       text-align: center; 
+       text-align: center;
        }
+    } 
+    .username{
+        padding-top:40px;
     }
-    .alert{
-        color:red;
+    .email{
+        padding-top:40px;
     }
-       
         .password{
             padding-top:40px;
         }
         //butons wayper
-        .wayper {
-            display: flex;
-            justify-content: space-between;
-            padding-top:40px;
+        .p-button{
+            margin: 10px;
+            float:right;
+        }
             .p-button:hover {
                 color:white;
                 background-color: #0cf00c;
             }
         }
     }
-}

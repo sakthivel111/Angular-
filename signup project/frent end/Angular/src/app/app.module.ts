@@ -7,6 +7,8 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     NavComponent,
     SignInComponent,
+    SignUpComponent,
+    HomepageComponent,
     
   ],
   imports: [

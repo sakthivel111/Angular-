@@ -1,32 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, MinLengthValidator } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss']
 })
-export class SignInComponent implements OnInit {
-  // name = ''
+export class SignUpComponent implements OnInit {
   profileForm: any
- 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    // console.log('!!!!!!!!!!!!!', this.profileForm.value)
     this.profileForm = this.fb.group({
+      name: [null,[Validators.required]],
       email:[null,[Validators.required]],
       password:[null,[Validators.required,Validators.maxLength(8),Validators.minLength(8)]]
     });
   }
-  next() {
-    
-    console.log(this.profileForm.value)
-  }
 
-  //this is a sort form of var.constructer
-  get form() {
+   get form() {
     return this.profileForm.controls;
-  }   
+  } 
+
 }

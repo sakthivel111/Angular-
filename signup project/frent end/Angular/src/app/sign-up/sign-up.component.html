@@ -3,14 +3,28 @@
 
         <form [formGroup]="profileForm">
             <div class="header">
-                <h2>Sing In</h2>
+                <h2>Sing Up</h2>
             </div>
 
-           
+            <div class="udername">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" name="name" pInputText formControlName="name">
+                    <label for="float-input">Username</label></span>
+<!-- validation -->
+                <div *ngIf="form['name']?.invalid && (form['name'].dirty || form['name'].touched)" class="alert">
+
+                    <p *ngIf="form['name']?.errors?.['required']">
+                        Name is required.
+                    </p>
+
+                </div>
+            </div>
+
+
             <div class="email"><span class="p-float-label">
                     <input id="float-input" type="email" pInputText formControlName="email">
                     <label for="float-input">Email</label>
-
+<!-- validation -->
                     <div *ngIf="form['email']?.invalid && (form['email'].dirty || form['email'].touched)" class="alert">
 
                         <p *ngIf="form['email']?.errors?.['required']">
@@ -24,6 +38,7 @@
                     <input id="float-input" type="password" pInputText formControlName="password">
                     <label for="float-input">Password</label>
                 </span>
+     <!-- validation -->
                 <div *ngIf="form['password']?.invalid && (form['password'].dirty || form['password'].touched)"
                     class="alert">
 
@@ -40,20 +55,12 @@
                 </div>
             </div>
 
-            <div class="wayper">
+            
                 <div>
-                    <button pButton pRipple  type="button" routerLink="/sign-in" class="p-button-outlined p-button-rounded ">Singn Up</button>
+                    <button pButton pRipple type="button" routerLink="/sign-in"
+                    [disabled]="profileForm.invalid" class="p-button-outlined p-button-rounded ">Singn Up</button>
                 </div>
-                <div>
-                    <button pButton pRipple (click)="next()" type="button" class="p-button-outlined p-button-rounded "
-                        [disabled]="profileForm.invalid ">Singn In</button>
-                </div>
-            </div>
-
 
         </form>
-
-
-
     </div>
 </div>
