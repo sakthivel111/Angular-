@@ -1,0 +1,37 @@
+.overall{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 350px;
+    margin:auto;
+    padding: 30px 5px;
+
+.center {
+    display: flex;
+    justify-content: center;
+    .header{
+       h2{
+       margin-top:0;
+       text-align: center;
+       }
+    }
+        .username{
+            padding-top:40px;
+        }
+        .email{
+            padding-top:40px;
+        }
+        .password{
+            padding-top:40px;
+        }
+        //butons wayper
+        .wayper {
+            display: flex;
+            justify-content: space-between;
+            padding-top:40px;
+            .p-button:hover {
+                color:white;
+                background-color: #0cf00c;
+            }
+        }
+    }
+}

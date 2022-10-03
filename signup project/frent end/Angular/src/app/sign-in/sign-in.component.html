@@ -1,16 +1,43 @@
-<div>
-<form action="#">
-   <ul>
-    <li><span class="p-float-label">
-         <input id="float-input-invalid" type="text" pInputText  class="ng-invalid ng-dirty">  <!--[(ngModel)]="value6" -->
-        <label for="float-input-invalid">Username</label>
-    </span></li>
-    <li><span class="p-float-label">
-        <input id="float-input-invalid" type="text" pInputText  class="ng-invalid ng-dirty">  <!--[(ngModel)]="value6" -->
-        <label for="float-input-invalid">Username</label>
-    </span></li>
+<div  class="overall">
+    <div class='center' >
 
-
-   </ul>
-</form>
+        <form [formGroup]="profileForm">
+             <div class="header">
+            <h2>Sing In</h2>
+        </div> 
+   
+               <div class="udername">
+                   <span class="p-float-label">
+                       <input id="float-input-invalid" type="text" pInputText formControlName="name">
+                       <!--[(ngModel)]="value6" -->
+                       <label for="float-input-invalid">Username</label>
+                   </span>
+               </div>
+              
+                   <div class="email"><span class="p-float-label">
+                       <input id="float-input-invalid" type="text" pInputText formControlName="email" >
+                       <!--[(ngModel)]="value6" -->
+                       <label for="float-input-invalid">Email</label>
+                   </span></div>
+                       
+               <div class="password">
+                   <span class="p-float-label">
+                       <input id="float-input-invalid" type="text" pInputText formControlName="pass" >
+                       <!--[(ngModel)]="value6" -->
+                       <label for="float-input-invalid">Password</label>
+                   </span>
+               </div>
+              
+               
+                       <div class="wayper">
+                           <div><button pButton pRipple  type="button" class="p-button-outlined p-button-rounded ">Singnin</button></div>
+                           <div><button pButton pRipple (click)="next" type="button" class="p-button-outlined p-button-rounded ">Next</button></div>
+                       </div>
+               
+           
+       </form>
+   
+       
+   
+   </div>
 </div>

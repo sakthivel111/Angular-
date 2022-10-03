@@ -6,6 +6,8 @@ import { NavComponent } from './nav/nav.component';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +20,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
-    InputTextModule
-   
-
+    InputTextModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
