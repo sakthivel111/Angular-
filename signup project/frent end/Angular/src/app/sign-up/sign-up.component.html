@@ -5,6 +5,7 @@
             <div class="header">
                 <h2>Sing Up</h2>
             </div>
+            
 
             <div class="udername">
                 <span class="p-float-label">
@@ -58,7 +59,7 @@
             
                 <div>
                     <button pButton pRipple type="button" routerLink="/sign-in"
-                    [disabled]="profileForm.invalid" class="p-button-outlined p-button-rounded ">Singn Up</button>
+                    [disabled]="profileForm.invalid" (click)="adduser()" class="p-button-outlined p-button-rounded ">Singn Up</button>
                 </div>
 
         </form>
