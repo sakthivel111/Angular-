@@ -10,7 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
-import { VarifyComponent } from './varify/varify.component';
+import { VerifyComponent } from './verify/verify.component';
+import {ToastModule} from 'primeng/toast';
 
 
 
@@ -22,7 +23,7 @@ import { VarifyComponent } from './varify/varify.component';
     SignInComponent,
     SignUpComponent,
     HomepageComponent,
-    VarifyComponent,
+    VerifyComponent
     
   ],
   imports: [
@@ -30,9 +31,9 @@ import { VarifyComponent } from './varify/varify.component';
     AppRoutingModule,
     ButtonModule,
     InputTextModule,
-    ReactiveFormsModule,
-   // HttpClient 
-   HttpClientModule 
+    ReactiveFormsModule, 
+   HttpClientModule,
+   ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

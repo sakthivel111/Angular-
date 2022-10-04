@@ -10,6 +10,7 @@ import { ServiceService } from '../service.service';
 })
 export class SignUpComponent implements OnInit {
   profileForm: any;
+  message:any;
   
   constructor(private service:ServiceService,private fb: FormBuilder) { }
 
@@ -17,20 +18,22 @@ export class SignUpComponent implements OnInit {
     this.profileForm = this.fb.group({
       name: [null,[Validators.required,Validators.maxLength(20)]],
       email:[null,[Validators.required]],
-      password:[null,[Validators.required,Validators.maxLength(8),Validators.minLength(8)]]
+      password:[null,[Validators.required,Validators.maxLength(8)]]
     });
   }
   
-  adduser(){
-    console.log(this.profileForm.value)
-    this.service.addinguser({ name:this.profileForm.value.name,email:this.profileForm.value.email,password:this.profileForm.value.password}).subscribe((newUser) => {
-       console.log(newUser)
-      //this.router.navigate(['/read'])
-  })
-  }
   get form() {
     return this.profileForm.controls;
   } 
+  adduser(){
+    console.log(this.profileForm.value)
+    this.service.addinguser({ name:this.profileForm.value.name,email:this.profileForm.value.email,password:this.profileForm.value.password}).subscribe((newUser:any) => {
+       console.log(newUser.message)
+       this. message=newUser.message
+      //this.router.navigate(['/read'])
+  })
+  }
+  
     
   
 }

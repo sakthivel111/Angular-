@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
     // console.log('!!!!!!!!!!!!!', this.profileForm.value)
     this.profileForm = this.fb.group({
       email:[null,[Validators.required]],
-      password:[null,[Validators.required,Validators.maxLength(8),Validators.minLength(8)]]
+      password:[null,[Validators.required,Validators.maxLength(8)]]
     });
   }
   next() {
