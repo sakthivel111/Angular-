@@ -35,12 +35,13 @@ connection.connect(function (err) {
 //insert--------------------------------------------------------------------------------
 app.post('/insert', (req, res) => {
     data = req.body;
-    //console.log(data);
+    console.log(data);
     check = "select * from Angular_table where email=?"
     connection.query(check, [data.email], async (err, result) => {
-        console.log('lkfdfkerkkkkkkkkkkk', result)
+        console.log('lkfdfkerkkkkkkkkkkk', result) //empt array
         if (err) {
             res.send('errrrrrrrrrr')
+            console.log('')
         } else {
             if (result.length == 0) {
 
@@ -103,19 +104,19 @@ app.post('/insert', (req, res) => {
 })
 //verify Update verifycation
 
-app.get('/verify:token', (req, res) => {
-    var token = req.query.token;
+app.get('/verify', (req, res) => {
+    var token = req.query;
     console.log(token,'akkkkkkkkkkkkkkkkkkkkkkkk')
-    sql = `select * from Angular_tablea where token=?`
+    sql = `select * from Angular_table where token=?`
 
     connection.query(sql, [token], (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            if (result.length != 0) {
+            if (result.length != 0 ) {
                 updatequre = `update Angular_table set  token=null, verify=1 where token=?`
                 connection.query(updatequre, [token], (err, result) => {
-                    console.log(updatequre)
+                    console.log('update option',result)
                     res.send('verified sucessfully')
                 })
             } else {

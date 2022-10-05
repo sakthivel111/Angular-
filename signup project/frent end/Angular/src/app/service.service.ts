@@ -13,6 +13,7 @@ export class ServiceService {
     return this.http.post(environment.url+'/insert',data)
   }
   gettoken(token: any){
-    return this.http.get(environment.url+'/verify?'+token)
+    console.log(token,"hbx-----------------");
+    return this.http.get(environment.url+'/verify?token='+token)
   }
 }

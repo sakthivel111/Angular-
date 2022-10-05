@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit {
     this.service.addinguser({ name:this.profileForm.value.name,email:this.profileForm.value.email,password:this.profileForm.value.password}).subscribe((newUser:any) => {
        console.log(newUser.message)
        this. message=newUser.message
-      //this.router.navigate(['/read'])
+      
   })
   }
   
