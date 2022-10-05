@@ -105,16 +105,18 @@ app.post('/insert', (req, res) => {
 //verify Update verifycation
 
 app.get('/verify',(req, res) => {
-    let token = req.query;
-    console.log(token,'akkkkkkkkkkkkkkkkkkkkkkkk')
+    let token = req.query.token;
+   // console.log(req.query.token,'akkkkkkkkkkkkkkkkkkkkkkkk')
     sql = `select * from Angular_table where token=?`
 
     connection.query(sql, [token], (err, result) => {
+        //console.log("yyyyyyyyyyyy",result);
         if (err) {
             console.log(err);
         } else {
             if (result.length != 0 ) {
-                updatequre = `update Angular_table set  token=null, verify=1 where token=?`
+                // console.log("tttttttt",result);
+                updatequre = `update Angular_table set token=null, verify=1 where token=?`
                 connection.query(updatequre, [token], (err, result) => {
                     if(err){
                         console.log(err)
@@ -123,7 +125,7 @@ app.get('/verify',(req, res) => {
                     }             
                 })
             } else {
-                res.send('err')
+                // res.send('err')
                 console.log('errrrrrrrrrrrrrrrrrrrrrrrrrrrrr' ,"mmmm" )
             }
         }
@@ -131,5 +133,7 @@ app.get('/verify',(req, res) => {
     res.send('verified sucessfully')
    
 });
+
+//login page
 
 
