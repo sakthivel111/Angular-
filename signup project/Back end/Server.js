@@ -45,8 +45,8 @@ app.post('/insert', (req, res) => {
         } else {
             if (result.length == 0) {
 
-                var token = jwt.sign({ email: data.email }, 'secretKeySak', { expiresIn: '2m' });
-                var hashedpassword = await bcrypt.hash(data.password, 10);
+                let token = jwt.sign({ email: data.email }, 'secretKeySak', { expiresIn: '2m' });
+                let hashedpassword = await bcrypt.hash(data.password, 10);
 
                 sql = 'insert into Angular_table(name, email, password,token,verify) values(?,?,?,?,?)';
                 connection.query(sql, [data.name, data.email, hashedpassword, token, 0], (err, result) => {
@@ -104,8 +104,8 @@ app.post('/insert', (req, res) => {
 })
 //verify Update verifycation
 
-app.get('/verify', (req, res) => {
-    var token = req.query;
+app.get('/verify',(req, res) => {
+    let token = req.query;
     console.log(token,'akkkkkkkkkkkkkkkkkkkkkkkk')
     sql = `select * from Angular_table where token=?`
 
@@ -116,15 +116,20 @@ app.get('/verify', (req, res) => {
             if (result.length != 0 ) {
                 updatequre = `update Angular_table set  token=null, verify=1 where token=?`
                 connection.query(updatequre, [token], (err, result) => {
-                    console.log('update option',result)
-                    res.send('verified sucessfully')
+                    if(err){
+                        console.log(err)
+                    }else{
+                        console.log('update option',result)   
+                    }             
                 })
             } else {
                 res.send('err')
-                console.log('errrrrrrrrrrrrrrrrrrrrrrrrrrrrr' ,"mmmm")
+                console.log('errrrrrrrrrrrrrrrrrrrrrrrrrrrrr' ,"mmmm" )
             }
         }
     });
+    res.send('verified sucessfully')
+   
 });
 
 

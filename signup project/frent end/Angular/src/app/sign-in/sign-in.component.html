@@ -7,7 +7,8 @@
             </div>
 
            
-            <div class="email"><span class="p-float-label">
+            <div class="email">
+                <span class="p-float-label">
                     <input id="float-input" type="email" pInputText formControlName="email">
                     <label for="float-input">Email</label>
 
@@ -17,7 +18,8 @@
                             Email is required.
                         </p>
                     </div>
-                </span></div>
+                </span>
+            </div>
 
             <div class="password">
                 <span class="p-float-label">
@@ -30,10 +32,9 @@
                     <p *ngIf="form['password']?.errors?.['required']">
                         Password is required.
                     </p>
-
-                    <div *ngIf="form['password'].errors?.minlength">
+                    <!-- <div *ngIf="form['password'].errors?.minlength">
                         <p>password must be minimum 8 characters long.</p>
-                    </div>
+                    </div> -->
                     <div *ngIf="form['password'].errors?.maxlength">
                         <p>Password must be maxmum 8 characters long.</p>
                     </div>

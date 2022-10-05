@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ReadComponent implements OnInit {
   data: any;
- id: any;
+  id: any;
 
   constructor(private service: ApiserviceService, private router: Router) { }
 

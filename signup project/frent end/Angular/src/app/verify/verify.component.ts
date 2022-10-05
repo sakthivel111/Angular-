@@ -13,14 +13,13 @@ export class VerifyComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router, private aRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.aRoute.queryParams.subscribe(params => {
       this.usertoken = params['token']; 
-
     this.service.gettoken(this.usertoken).subscribe((data)=>{
-      console.log(data)
-      //this.message=data.message;
+      console.log(data ,"@@@@@@@@@@@@@@@@") 
     })
-      this.router.navigate(['/sign-in'])
+    this.router.navigate(['/sign-in'])
       console.log('jssssssssssssssssssssss',this.usertoken)
     })
   }
