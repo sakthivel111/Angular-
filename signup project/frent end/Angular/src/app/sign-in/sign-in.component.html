@@ -48,13 +48,12 @@
                 <div>
                     <button pButton pRipple (click)="next()" type="button" class="p-button-outlined p-button-rounded "
                         [disabled]="profileForm.invalid">Singn In</button>
+                        <p>{{message}}</p>
+                        <p-toast>{{message}}</p-toast>
                 </div>
             </div>
 
 
         </form>
-
-
-
     </div>
 </div>

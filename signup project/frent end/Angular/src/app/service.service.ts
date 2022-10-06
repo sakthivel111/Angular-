@@ -16,4 +16,8 @@ export class ServiceService {
     console.log(token,"hbx-----------------");
     return this.http.get(environment.url+'/verify?token='+token)
   }
+
+  login(data:any){
+    return this.http.post(environment.url+'/login',data)
+  }
 }

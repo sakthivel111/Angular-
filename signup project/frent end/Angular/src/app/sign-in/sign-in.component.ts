@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { ServiceService } from '../service.service';
+import { ActivatedRoute, Router } from '@angular/router';
+// import {MessageService} from 'primeng/api';
+// import {Component} from '@angular/core';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,9 +14,10 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
   // name = ''
-  profileForm: any
+  profileForm: any;
+  message:any;
  
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private service:ServiceService,private router: Router, private aRoute: ActivatedRoute,private messageService: MessageService) { }
 
   ngOnInit(): void {
     // console.log('!!!!!!!!!!!!!', this.profileForm.value)
@@ -20,13 +26,24 @@ export class SignInComponent implements OnInit {
       password:[null,[Validators.required,Validators.maxLength(8)]]
     });
   }
-  next() {
-    
-    console.log(this.profileForm.value)
-  }
 
   //this is a sort form of var.constructer
   get form() {
     return this.profileForm.controls;
-  }   
+  } 
+
+  next() {
+   // console.log(this.profileForm.value)
+    this.service.login({email:this.profileForm.value.email,password:this.profileForm.value.password}).subscribe((newUser:any) => {
+      console.log(newUser.message)
+      this. message = newUser.message
+     this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
+
+      if(this.message=='login success'){
+        this.router.navigate(['/homepage'])
+      }else{
+            console.log('login unsuccess')
+      }
+  })
+}  
 }

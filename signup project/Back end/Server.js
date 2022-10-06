@@ -104,9 +104,9 @@ app.post('/insert', (req, res) => {
 })
 //verify Update verifycation
 
-app.get('/verify',(req, res) => {
+app.get('/verify', (req, res) => {
     let token = req.query.token;
-   // console.log(req.query.token,'akkkkkkkkkkkkkkkkkkkkkkkk')
+    // console.log(req.query.token,'akkkkkkkkkkkkkkkkkkkkkkkk')
     sql = `select * from Angular_table where token=?`
 
     connection.query(sql, [token], (err, result) => {
@@ -114,26 +114,76 @@ app.get('/verify',(req, res) => {
         if (err) {
             console.log(err);
         } else {
-            if (result.length != 0 ) {
+            if (result.length != 0) {
                 // console.log("tttttttt",result);
                 updatequre = `update Angular_table set token=null, verify=1 where token=?`
                 connection.query(updatequre, [token], (err, result) => {
-                    if(err){
+                    if (err) {
                         console.log(err)
-                    }else{
-                        console.log('update option',result)   
-                    }             
+                    } else {
+                        console.log('update option', result)
+                    }
                 })
             } else {
                 // res.send('err')
-                console.log('errrrrrrrrrrrrrrrrrrrrrrrrrrrrr' ,"mmmm" )
+                console.log('errrrrrrrrrrrrrrrrrrrrrrrrrrrrr', "mmmm")
             }
         }
     });
     res.send('verified sucessfully')
-   
+
 });
+//login page 
+app.post('/login', (req, res) => {
+    console.log('jkasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss')
+    data = req.body;
+    console.log(data)
+    check = "select email from Angular_table where email=?"
+    comparing = connection.query(check, [data.email], (err, result) => {
+        if (err) {
+            //console.log("code err")
+            res.send('err')
+        }
+        else {
+             console.log('check', result);
+            if (result.length != 0) {
+                verify = "select verify, password from Angular_table where email=?"
+                connection.query(verify, [data.email], (err, result) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                    else {
+                        console.log('ooooooooooooooooooooooooooooo', result)
 
-//login page
+                        if (result[0].verify == 1) {
+                            bcrypt.compare(data.password, result[0].password, (err, hash) => {
+                                if (err) {
+                                    console.log('QQQQQQQQQ', err)
+                                    res.send(err)
+                                }
+                                else {
+                                    //console.log('HHHHHHHHHHHHH', hash)
+                                    if (hash == true) {
+                                        endtoken = jwt.sign({ email: data.email }, 'secretKeySak');
+                                        //console.log('Compared result', hash)
+                                        //console.log(endtoken)
+                                        res.json({ status: hash, identify: endtoken, message: 'login success' })
+                                        // res.json({ messahe: 'Password curect' })
+                                    }
+                                    else {
+                                        res.json({ message: 'Password incurect' })
+                                    }
+                                }
+                            })
+                        }else{
+                            res.json({message:'plse verify your email'})
+                        }
+                    }
+                })
 
-
+            }else{
+                res.json({message:'sign up'})
+            }
+        }
+    })
+})

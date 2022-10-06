@@ -11,8 +11,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifyComponent } from './verify/verify.component';
-import {ToastModule} from 'primeng/toast';
+import {ToastModule} from 'primeng/toast';  
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+
 
 
 const ngx:NgxUiLoaderConfig ={
