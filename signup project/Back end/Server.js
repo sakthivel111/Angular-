@@ -145,7 +145,7 @@ app.post('/login', (req, res) => {
             res.send('err')
         }
         else {
-             console.log('check', result);
+            console.log('check', result);
             if (result.length != 0) {
                 verify = "select verify, password from Angular_table where email=?"
                 connection.query(verify, [data.email], (err, result) => {
@@ -175,15 +175,46 @@ app.post('/login', (req, res) => {
                                     }
                                 }
                             })
-                        }else{
-                            res.json({message:'plse verify your email'})
+                        } else {
+                            res.json({ message: 'plse verify your email' })
                         }
                     }
                 })
 
-            }else{
-                res.json({message:'sign up'})
+            } else {
+                res.json({ message: 'sign up' })
             }
         }
     })
 })
+
+//forget password
+
+// update password
+app.put("/forgetpassword", async (req, res) => {
+    data = req.body
+    console.log(data)
+    hashedpassword = await bcrypt.hash(data.password, 10);
+    check = 'select email from Angular_table where email=?'
+    connection.query(check, [data.email], (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            if (result.length != 0) {
+                console.log('passsssssssssssssssssssssssssssssssssssssssssssssssss', result)
+                var sql = 'UPDATE Angular_table SET password=? WHERE email= ?'
+                connection.query(sql, [hashedpassword, result[0].email], (err, result) => {
+                    if (err) {
+                        console.log(err)
+                        
+                    } else {
+                        res.json({ message: 'password is suscessfuly updated' })
+                    }
+                });
+            } else {
+                res.json({ message: 'something went wrong' })
+            }
+
+        }
+    });
+});

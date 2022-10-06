@@ -20,4 +20,9 @@ export class ServiceService {
   login(data:any){
     return this.http.post(environment.url+'/login',data)
   }
+
+  forget(data:any){
+    return this.http.put(environment.url+'/forgetpassword',data)
+  }
+
 }

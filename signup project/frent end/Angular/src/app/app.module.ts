@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser'
+import{BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -13,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerifyComponent } from './verify/verify.component';
 import {ToastModule} from 'primeng/toast';  
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MessageService } from 'primeng/api';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 
 
 
@@ -56,7 +59,8 @@ NgxUiLoaderHttpModule.forRoot({showForeground:true});
     SignInComponent,
     SignUpComponent,
     HomepageComponent,
-    VerifyComponent, 
+    VerifyComponent,
+    ForgetpasswordComponent, 
   ],
   imports: [
     BrowserModule,
@@ -66,13 +70,15 @@ NgxUiLoaderHttpModule.forRoot({showForeground:true});
     ReactiveFormsModule, 
     HttpClientModule,
     ToastModule,
+    BrowserAnimationsModule,
+    
    
      NgxUiLoaderHttpModule,
       NgxUiLoaderModule 
    
     
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
